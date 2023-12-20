@@ -39,6 +39,10 @@ http://daftar-ulang.syatiby.id/
     python manage.py migrate
     ```
 
+    ## Screenshot
+
+   https://github.com/hermantoXYZ/Upload-Doc-Without-Login/blob/master/Screen%20Shot%202023-12-20%20at%2012.29.33.png 
+
 ## Running the Project
 
 Run the development server:
