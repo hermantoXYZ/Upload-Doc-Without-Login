@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unggah Dokumen</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-success">
+    <div class="container">
+        <a class="navbar-brand text-white" href="/">Unggah Bukti Pembayaran</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/">Beranda</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#">Order File</a>
+                </li>
+             
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<!-- Main Content -->
+<div class="container mt-5">
+    <h2>Cek Verifikasi Data</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">No</th>
+                <th scope="col">Nama</th>
+                <th scope="col">Tingkat Pendidikan</th>
+                <th scope="col">Status Verifikasi</th>  <!-- Tambahkan kolom status verifikasi -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for dokumen in dokumen_list %}
+                <tr>
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td>{{ dokumen.nama }}</td>
+                    <td>{{ dokumen.program_pendidikan }}</td>
+                    <td>
+                        {% if dokumen.status == 'terverifikasi' %}
+                        <span class="badge text-bg-success">Terverifikasi</span> 
+                        {% elif dokumen.status == 'belum_terverifikasi' %}
+                        <span class="badge text-bg-danger">Belum Terverifikasi</span>
+                        {% else %}
+                        <span class="badge text-bg-danger">Belum Terverifikasi</span>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
